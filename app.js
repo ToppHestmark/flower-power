@@ -8,7 +8,7 @@ async function flowerProducts() {
   try {
     const response = await fetch(newUrl);
     const results = await response.json();
-    
+
     const sortByName = results.sort((a, b) => a.name.localeCompare(b.name));
     const sortByPrice = results.sort((a, b) => a.price_html.localeCompare(b.price_html));
     
@@ -35,3 +35,24 @@ async function flowerProducts() {
 }
 
 flowerProducts()
+
+
+const dropdown = document.querySelector("#dropdown");
+const dropdownContent = document.getElementsByClassName("dropdown-content");
+
+function sortDropDown() {
+  dropdown.classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.products__dropdownButton')) {
+    let dropdowns = dropdownContent;
+    let i;
+    for (i = 0; i < dropdowns.length; i++) {
+      let openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}

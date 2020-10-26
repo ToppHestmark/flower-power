@@ -12,6 +12,18 @@
   <header class="header__container">
     <h1>Flower Power Products</h1>
   </header>
+
+  <div class="products__dropdownContainer">
+    <a onclick="sortDropDown()" class="products__dropdownButton">
+        Sort:
+        <img class="products__dropdownIcon" src="/images/dropdown-display-icon.png" alt="Dropdown icon">
+    </a>
+    <div id="dropdown" class="products__dropdown-content">
+      <a href="#">Names A-Z</a>
+      <a href="#">Lowest Price</a>
+    </div>
+  </div>
+
   <div class="products__container"></div>
   
   <script src="app.js"></script>
