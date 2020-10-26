@@ -6,6 +6,18 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.header__container {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__container h1 {
+  font-weight: 300;
+  font-size: 55px;
+}
+
 .products__container {
   width: 100%;
   display: flex;
@@ -33,8 +45,12 @@
 
 .button__viewMore {
   margin-top: 15px;
-  padding: 10px 35px 10px 35px;
+  padding: 10px 45px 10px 45px;
   text-decoration: none;
+  color: #fff;
+  background-color: #e0aab9;
+}
+
+.button__viewMore:hover {
   color: black;
-  border: 1px solid black;
 }

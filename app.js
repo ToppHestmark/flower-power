@@ -4,20 +4,20 @@ const url = 'https://www.gomi.no/wp-json/wc/store/products/';
 const newUrl = proxy_url + url;
 
 
-// productsContainer.innerHTML = `<h1>Hello World</h1>`
-
-
 async function flowerProducts() {
   try {
     const response = await fetch(newUrl);
     const results = await response.json();
-
-    console.log(results);
+    
+    const sortByName = results.sort((a, b) => a.name.localeCompare(b.name));
+    const sortByPrice = results.sort((a, b) => a.price_html.localeCompare(b.price_html));
+    
+    console.log(sortByPrice);
 
     results.map(product => {
       const name = product.name;
       const image = product.images[0].src;
-      const price = product.price_html
+      const price = product.price_html;
 
       productsContainer.innerHTML += `
         <div class="product__card">
@@ -28,7 +28,6 @@ async function flowerProducts() {
         </div>
       `
     })
-
   }
   catch(error) {
     console.log(error);
