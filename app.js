@@ -2,25 +2,23 @@ const productsContainer = document.querySelector('.products__container');
 const proxy_url = 'https://cors-anywhere.herokuapp.com/';
 const url = 'https://www.gomi.no/wp-json/wc/store/products/';
 const newUrl = proxy_url + url;
-const nameSort = document.querySelector("#name-sort");
-const priceSort = document.querySelector("#price-sort");
 
-// const sortByName = results.sort((a, b) => a.name.localeCompare(b.name));
-// const sortByPrice = results.sort((a, b) => a.price_html.localeCompare(b.price_html));
 
 async function flowerProducts() {
   try {
     const response = await fetch(newUrl);
     const results = await response.json();
-      
-    productsContainerHtml(results);
+
+    // const sortByName = results.sort((a, b) => a.name.localeCompare(b.name));
+    // const sortByPrice = results.sort((a, b) => a.price_html.localeCompare(b.price_html));
+    
+    productsContainerHtml(results)
   }
   catch(error) {
     console.log(error);
   }
 }
 flowerProducts()
-
 
 const productsContainerHtml = (results) => {
 
