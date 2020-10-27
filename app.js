@@ -23,6 +23,7 @@ flowerProducts()
 
 
 const productsContainerHtml = (results) => {
+
   results.map(product => {
     const name = product.name;
     const image = product.images[0].src;
