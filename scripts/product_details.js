@@ -1,11 +1,8 @@
 const detailsContainer = document.querySelector('.details__container');
-
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const flower_id = params.get("product_id");
 const products_url = `https://www.gomi.no/wp-json/wc/v3/products/${flower_id}?consumer_key=ck_dffd8b3de85de77df20571ca5215cbbbb06e9b5e&consumer_secret=cs_a18432a4f7bbc2afab4279687247a39913f55629`;
-
-console.log(flower_id);
 
 async function flowerDetails() {
 
@@ -19,15 +16,22 @@ async function flowerDetails() {
     const stockStatus = results.stock_status;
     const description = results.description;
 
+    function stock() {
+      return stockStatus === 'instock' ? 'In stock' : 'Not in stock';
+    }
+
     detailsContainer.innerHTML = `
-    <a href="../index.html">Back to products</a>
-    <div>
-      <img src=${image} />
-      <h2>${name}</h2>
-      <p>$ ${price}</p>
-      <p>Stock status: ${stockStatus}</p>
-      <h3>Description</h3>
-      ${description}
+    <div class="details__imageContainer">
+      <img class=""details__image src=${image} />
+    </div>
+    <div class="details__textContainer">
+      <h2 class="details__name">${name}</h2>
+      <p class="details__price">$ ${price}</p>
+      <p class="details__stockStatus">Stock status: <b>${stock()}</b></p>
+      <h3 class="details__descriptionHeader">Description</h3>
+      <div class="details__description">
+        ${description}
+      </div>
     </div>
     `
 
