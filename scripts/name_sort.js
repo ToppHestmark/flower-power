@@ -5,7 +5,7 @@ const newUrl = proxy_url + url;
 
 async function flowerProducts() {
   try {
-    const response = await fetch(newUrl);
+    const response = await fetch(url);
     const results = await response.json();
     results.sort((a, b) => a.name.localeCompare(b.name));
     

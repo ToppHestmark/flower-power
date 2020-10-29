@@ -5,8 +5,9 @@ const newUrl = proxy_url + url;
 
 async function flowerProducts() {
   try {
-    const response = await fetch(newUrl);
+    const response = await fetch(url);
     const results = await response.json();
+    console.log(results);
     
     productsContainerHtml(results)
   }
