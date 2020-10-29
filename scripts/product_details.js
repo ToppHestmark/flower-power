@@ -13,6 +13,24 @@ async function flowerDetails() {
     const response = await fetch(products_url);
     const results = await response.json();
 
+    const name = results.name;
+    const image = results.images[0].src;
+    const price = results.price;
+    const stockStatus = results.stock_status;
+    const description = results.description;
+
+    detailsContainer.innerHTML = `
+    <a href="../index.html">Back to products</a>
+    <div>
+      <img src=${image} />
+      <h2>${name}</h2>
+      <p>$ ${price}</p>
+      <p>Stock status: ${stockStatus}</p>
+      <h3>Description</h3>
+      ${description}
+    </div>
+    `
+
     console.log(results);
   }
   catch(error) {
