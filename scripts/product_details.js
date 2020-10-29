@@ -12,6 +12,7 @@ async function flowerDetails() {
 
     const name = results.name;
     const image = results.images[0].src;
+    const imageAlt = results.images[0].alt;
     const price = results.price;
     const stockStatus = results.stock_status;
     const description = results.description;
@@ -22,7 +23,7 @@ async function flowerDetails() {
 
     detailsContainer.innerHTML = `
     <div class="details__imageContainer">
-      <img class=""details__image src=${image} />
+      <img class=""details__image src=${image} alt="${imageAlt}" />
     </div>
     <div class="details__textContainer">
       <h2 class="details__name">${name}</h2>
